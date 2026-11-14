@@ -2,7 +2,7 @@
 
 A skill for Claude that designs websites the way a studio would: it starts from **your mood board**, not from its defaults.
 
-![snare, built with design-studio](examples/snare-home.png)
+![Lead Engine, Vettika, Suture and Ava Copilot, built with design-studio](examples/showcase.png)
 
 ## Why
 
@@ -16,14 +16,20 @@ Ask an AI for a website and you get the same site everyone gets: a cream backgro
 4. **Picks the right shape for each page.** A short home page, long reads with a reading time and progress rail, and separate pages for things like changelogs and bug reports.
 5. **Builds and checks itself.** Design tokens, light and dark themes, accessibility, SEO, then screenshots at phone and desktop sizes before calling anything done.
 
-## Example: snare
-
-The site for [snare](https://nexlabz.github.io/snare/), an open-source malware scanner, came from one Pinterest board: industrial spec sheets, graphite, signal orange, amber terminal text and dot-matrix numbers.
+## Built with it
 
 | | |
 |---|---|
-| ![Home sections](examples/snare-sections.png) | ![Long read with a progress rail](examples/snare-longread.png) |
-| ![Report a bug, with real actions](examples/snare-report.png) | ![Mobile](examples/snare-mobile.png) |
+| **[Lead Engine](https://leadengine.nexprove.com)**: finds leads in the hiring noise<br>![Lead Engine](examples/leadengine-home.png) | **[Vettika](https://tryvettika.com)**: AI first-round interviews<br>![Vettika](examples/vettika-home.png) |
+| **[Suture](https://suture.nexprove.com)**: finds and fixes quiet AI failures<br>![Suture](examples/suture-home.png) | **[Ava Copilot](https://ava.nexprove.com)**: a browser copilot that waits for your click<br>![Ava Copilot](examples/ava-home.png) |
+
+Four products, four looks. None of them is cream with a serif, or black with one neon accent.
+
+## Before and after
+
+The same site with and without a mood board: [snare](https://nexlabz.github.io/snare/), an open-source malware scanner. The home page went from 1,314 words to 292. See [EVIDENCE.md](EVIDENCE.md).
+
+![snare before and after](examples/snare-before-after.png)
 
 ## Install
 

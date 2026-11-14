@@ -1,6 +1,6 @@
 # Evidence: does it work?
 
-Everything below was measured on 2026-11-14 against the live site, nexlabz.github.io/snare.
+Everything below was measured on 2026-11-14 against the live sites.
 
 ## Before and after
 
@@ -14,7 +14,22 @@ Everything below was measured on 2026-11-14 against the live site, nexlabz.githu
 
 "Before" is the same site at commit `f4747ea` of nexlabz/snare. Claude built it without this skill. "After" is commit `7a712f8`.
 
-## The stop-ship check (`scripts/verify.mjs`)
+## Four live sites built with it
+
+![Showcase](examples/showcase.png)
+
+Each home page was checked at 375 px and 1440 px:
+
+| Site | HTTP | Sideways scroll | Console errors |
+|---|---|---|---|
+| [leadengine.nexprove.com](https://leadengine.nexprove.com) | 200 | none | 0 |
+| [suture.nexprove.com](https://suture.nexprove.com) | 200 | none | 0 |
+| [ava.nexprove.com](https://ava.nexprove.com) | 200 | none | 0 |
+| [tryvettika.com](https://tryvettika.com) | 200 | none | 6, all from a hosting move rather than the design: sign-in is paused (503), the Vercel analytics scripts aren't on the new host, and three page prefetches return 404 |
+
+Phone screenshots: `examples/*-mobile.png`.
+
+## The stop-ship check on snare (`scripts/verify.mjs`)
 
 All 9 pages were checked at 375 px and 1440 px, 18 loads in total:
 
