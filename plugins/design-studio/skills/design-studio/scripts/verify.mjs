@@ -5,6 +5,7 @@
  *   node verify.mjs http://localhost:3000 / /work /about
  *   node verify.mjs http://localhost:3000 / /old-page        # include old URLs: they must not 404
  *   CHROME_PATH=/path/to/chrome node verify.mjs http://localhost:3000 /
+ *   ALLOW_NO_SANDBOX=1 node verify.mjs ...   # only in a container that cannot run Chrome sandboxed
  *   THEMES=light,dark THEME_KEY=theme node verify.mjs http://localhost:3000 /
  *
  * Writes PNGs to ./.verify/ at 375x812 and 1440x900 in each theme, and checks the automatable
@@ -36,9 +37,14 @@ const OUT = '.verify'
 
 const slug = (p) => (p === '/' ? 'home' : p.replace(/^\//, '').replace(/[/?#=&]/g, '-'))
 
-const launchOpts = process.env.CHROME_PATH
-  ? { executablePath: process.env.CHROME_PATH, args: ['--no-sandbox'] }
-  : {}
+// The browser sandbox stays on: this script loads whatever the site serves.
+// Only an explicit ALLOW_NO_SANDBOX=1 (e.g. an unprivileged container where
+// Chrome cannot start sandboxed) turns it off, and it says so.
+const launchOpts = process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}
+if (process.env.ALLOW_NO_SANDBOX === '1') {
+  launchOpts.args = ['--no-sandbox']
+  console.warn('warning: Chrome sandbox disabled (ALLOW_NO_SANDBOX=1). Only point this at sites you trust.')
+}
 
 let browser
 try {
