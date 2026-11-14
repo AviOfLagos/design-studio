@@ -1,0 +1,11 @@
+{
+  "name": "design-studio",
+  "owner": { "name": "David Olatunji", "url": "https://avi.nexprove.com" },
+  "plugins": [
+    {
+      "name": "design-studio",
+      "source": "./plugins/design-studio",
+      "description": "Studio-grade web design from your mood board to a verified build."
+    }
+  ]
+}
