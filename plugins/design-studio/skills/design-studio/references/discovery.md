@@ -1,6 +1,6 @@
 # Discovery
 
-Contents: [Intake](#intake) · [Competitors](#competitors) · [Adjacent niches](#adjacent-niches) · [Validating a reference](#validating-a-reference) · [Mining user reviews](#mining-user-reviews)
+Contents: [Intake](#intake) · [Competitors](#competitors) · [Adjacent niches](#adjacent-niches) · [Validating a reference](#validating-a-reference) · [Mining user reviews](#mining-user-reviews) · [Problem research](#problem-research)
 
 ## Intake
 
@@ -128,3 +128,8 @@ sampling drops exactly the markets with the worst localisation.
 
 Report frequencies as rates against corpus size, never raw counts, and triangulate any theme against
 analytics or a few interviews before it becomes a roadmap item.
+
+## Problem research
+
+After competitors and reviews, research the problem itself across forums, app stores, Reddit, X,
+Stack Overflow and GitHub issues: `problem-research.md`.

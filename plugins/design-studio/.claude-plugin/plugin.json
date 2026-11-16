@@ -1,6 +1,6 @@
 {
   "name": "design-studio",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Studio-grade web design from your mood board to a verified build: reads your Pinterest board into tokens, gives the product a personality, cuts the copy, and screenshots the result.",
   "author": { "name": "David Olatunji", "url": "https://avi.nexprove.com" },
   "license": "MIT AND Apache-2.0",

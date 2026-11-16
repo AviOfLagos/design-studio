@@ -1,11 +1,11 @@
 ---
 name: design-studio
-description: 'Studio-grade web design from mood board to verified build. Reads the user''s mood board (Pinterest, Are.na, Figma, screenshots) into tokens, derives a product personality that shapes interaction and page structure, then runs research, art direction, content architecture with word budgets, stack choice, design tokens and theming, accessibility, SEO, build and screenshot checks. Use it for any web UI work: building, redesigning, restyling or planning a site, landing page, portfolio, docs, dashboard, app screen or component, and whenever a PRD arrives with no design direction. Trigger on casual phrasings too: "build me a site for X", "make this look better", "this looks generic or AI-generated", "give it personality", "add animation", "pick fonts or colours", "what stack should I use", "here''s my Pinterest board", or a site named as the feel they want. Not for backend-only work, small tweaks inside a mature design system, or chart styling.'
+description: 'Studio-grade web design from mood board to verified build. Reads the user''s mood board (Pinterest, Are.na, Figma, screenshots) into tokens, derives a product personality that shapes interaction and page structure, then runs research (competitors plus Reddit, app-store and Stack Overflow complaints), art direction, content architecture with word budgets, stack choice, design tokens and theming, accessibility, SEO, build and screenshot checks. Use it for any web UI work: building, redesigning, restyling or planning a site, landing page, portfolio, docs, dashboard, app screen or component, and whenever a PRD arrives with no design direction. Trigger on casual phrasings too: "build me a site for X", "make this look better", "this looks generic or AI-generated", "give it personality", "add animation", "pick fonts or colours", "what stack should I use", "here''s my Pinterest board", or a site named as the feel they want. Not for backend-only work, small tweaks inside a mature design system, or chart styling.'
 license: MIT; portions Apache-2.0, see NOTICE.md
 compatibility: Tool-agnostic; every phase can run by hand. Optional scripts need Node with Playwright (verification) and the GitHub CLI (issue creation). A browser tool makes the mood-board step far better; without one, ask for screenshots.
 metadata:
   author: David Olatunji
-  version: '2.0.0'
+  version: '2.1.0'
   homepage: https://avi.nexprove.com
   merged-from: award-tier-ui 1.0.0 + Anthropic frontend-design 1.1.1 (Apache-2.0)
 ---
@@ -34,7 +34,8 @@ calls defaults: when the brief or board asks for one, it is a choice, not a defa
 
 ## Working style
 
-Decide and disclose rather than asking. Gate on the user only for: **the mood board (Phase 0, always)**,
+Decide and disclose rather than asking. Gate on the user only for: **the mood board and the build-in-public question (Phase 0, one
+message)**,
 irreversible actions, facts you cannot obtain, and the single open question in Phase 3. If the user
 is absent, make the call, state it in the deliverable and continue.
 
@@ -64,10 +65,13 @@ file, a folder of screenshots. One message, one ask.
   choices: share one now, or proceed without. You may suggest where to collect references, with
   concrete search strings for their category. **Never assemble a board yourself and treat it as
   theirs.**
+- **In the same message**, ask once whether they want build-in-public help: draft posts and the live
+  conversations worth joining. No means skip it and never raise it again. It only drafts; it never posts. `references/social.md`.
 
 Method, extraction checklist, collection sources and a worked example: `references/moodboard.md`.
 
-**Exit:** `docs/MOODBOARD.md` written, or the user has explicitly chosen to proceed without one.
+**Exit:** `docs/MOODBOARD.md` written, or the user has explicitly chosen to proceed without one;
+the build-in-public answer recorded in BRIEF.md.
 
 ## Phase 1 — Brief and personality
 
@@ -91,8 +95,15 @@ Competitors as **constraints** (5–8, proposed back to the user), 2–3 **adjac
 an explicit structural map, **craft references** that pass a 3-of-6 evidence test, and **review
 mining** turned into named recommendations. Method: `references/discovery.md`.
 
+Then **problem research**, for a feature or the whole product: what goes wrong for people doing this
+task (app stores, Reddit, X, forums) and for developers building it (Stack Overflow, GitHub issues).
+Keep 5–8 problems, each with links, a rate and what this build does differently.
+`references/problem-research.md`. If the owner opted into build in public, write `docs/SOCIAL.md`
+from `assets/SOCIAL.md` now, reusing those threads.
+
 **Exit:** validated references with signature move / worth stealing / over-engineered here; a named
-pole you are rejecting; review themes converted to recommendations.
+pole you are rejecting; review themes converted to recommendations; 5–8 known problems with sources
+and a fix each; `docs/SOCIAL.md` if opted in.
 
 ## Phase 3 — Direction
 
@@ -100,7 +111,7 @@ One proposal the user can accept in thirty seconds, not five options. Fill `asse
 moodboard citations, references, donors, conventions you won't break, the rejected pole, the DNA
 blend, the personality's interaction rules, **typography chosen for this brief** (and why not the
 default faces), the one signature move where boldness is spent, the supporting system, tokens,
-themes, interaction budget.
+themes, interaction budget, and the known user problems with how this build avoids each.
 
 Then the **plan-then-critique pass**: write the compact plan (palette as 4–6 named values, type
 roles, layout as one-line prose plus ASCII wireframes, principles), then work the brief a second
@@ -125,7 +136,7 @@ Then the page inventory, content model and rendering decision (`references/archi
 and redirects for any URL that moves.
 
 **Exit:** `docs/ARCHITECTURE.md` with content-type decisions, word budgets, inventory, content
-model, stack decision record, metadata plan, scoped gates, redirect map.
+model, stack decision record, metadata plan, scoped gates, redirect map, known build problems.
 
 ## Phase 5 — Design system
 
@@ -159,7 +170,8 @@ is not.
 **Screenshot it and read the images**, at **375px mobile and 1440px desktop**, in every theme.
 Check horizontal overflow and console errors on every route. Run `scripts/verify.mjs`, then the
 checklist in `references/verification.md`. Look cold, or hand the images to a subagent; fix the
-real defects, re-check what changed, stop. Before calling it done, remove one accessory.
+real defects, re-check what changed, stop. Before calling it done, remove one accessory. If the
+owner opted into build in public, add the shipped screenshots and a "shipped" post to `docs/SOCIAL.md`.
 
 **Do not ship while** any of these holds: a console error, horizontal overflow, unreadable text at
 any breakpoint, a route that 404s (including old URLs), focus that disappears, contrast below
@@ -177,6 +189,8 @@ Read the one the phase needs.
 | `references/moodboard.md` | 0 — asking, reading a board, collection sources, worked example |
 | `references/personality.md` | 1 — personality → cursor, hover, scroll, page model, density |
 | `references/discovery.md` | 2 — competitors, adjacent niches, reference validation, reviews |
+| `references/problem-research.md` | 2 — forums, app stores, Reddit, X, Stack Overflow: known problems and fixes |
+| `references/social.md` | 0, 2, 7 — optional build in public: draft posts, conversations to join |
 | `references/direction.md` | 3 — the defaults, typography, boldness, art direction, budget, critique |
 | `references/content.md` | 4 and 6 — content architecture, word budgets, writing in design |
 | `references/architecture.md` | 4 — inventory, content model, rendering and stack, redirects |
@@ -194,6 +208,7 @@ Read the one the phase needs.
 | `assets/BRIEF.md` | Phase 1 → `docs/BRIEF.md` |
 | `assets/DIRECTION.md` | Phase 3 → `docs/DIRECTION.md` |
 | `assets/ARCHITECTURE.md` | Phase 4 → `docs/ARCHITECTURE.md` |
+| `assets/SOCIAL.md` | Phase 2, if opted in → `docs/SOCIAL.md` |
 | `assets/BUILD-KICKOFF.md` | Phase 6 — the prompt that starts a building session |
 | `assets/backlog.md` | Quality backlog with acceptance criteria |
 | `scripts/create-issues.sh` | Files the backlog via `gh`; idempotent, `--dry-run`, `--yes` |
