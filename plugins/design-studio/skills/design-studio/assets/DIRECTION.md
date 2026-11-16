@@ -36,6 +36,13 @@ declined here with a reason.
 |---|---|---|
 | | | |
 
+## Known problems and how we avoid them
+User-side problems from `references/problem-research.md`. 5–8 rows, every one with a link.
+
+| # | Problem | Seen in | Rate | Sources | What we do |
+|---|---|---|---|---|---|
+| | | | | | |
+
 ## Conventions we will not break
 From direct competitors. Jakob's Law constraints only.
 

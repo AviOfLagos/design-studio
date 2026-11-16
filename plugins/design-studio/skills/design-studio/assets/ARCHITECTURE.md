@@ -57,6 +57,13 @@ Signals scored (2+ rules out a client-only SPA):
 
 **Score:** __ / 10
 
+## Known build problems
+Developer-side problems from `references/problem-research.md` (Stack Overflow, GitHub issues).
+
+| # | Problem | Rate | Sources | What we do |
+|---|---|---|---|---|
+| | | | | |
+
 ## Decision record
 
 ```

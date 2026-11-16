@@ -37,6 +37,13 @@ component. Components reference semantic tokens only.
 Themes: `<light / dark / system / …>`. Prevent flash-of-wrong-theme with a synchronous inline script
 in `<head>`; a `useEffect` runs too late.
 
+**Known problems.** These are the failures most products in this category share. Each has a fix;
+build the fix, don't rediscover the problem.
+
+```
+<paste the known-problems tables from docs/DIRECTION.md and docs/ARCHITECTURE.md>
+```
+
 **Stack.** `<framework>`, chosen because `<signals>`. Do not substitute. All indexable content
 renders server-side; client-only data fetching only inside authenticated routes.
 

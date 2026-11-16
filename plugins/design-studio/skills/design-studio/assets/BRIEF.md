@@ -34,6 +34,9 @@ See `references/personality.md`.
 ## Mood board
 Link to `docs/MOODBOARD.md`, or "none: user chose to proceed".
 
+## Build in public
+Yes or no, from Phase 0. If no, there is no `docs/SOCIAL.md` and it isn't raised again.
+
 ## Stated style preference
 Anything the user already wants — a colour, a reference site, a mood. Record it verbatim.
 

@@ -14,7 +14,9 @@ Ask an AI for a website and you get the same site everyone gets: a cream backgro
 2. **Gives the product a personality.** A maps product should feel like a map: a pannable canvas, a crosshair cursor, coordinates. A kids' product uses very little text. A security tool reads like a field manual.
 3. **Cuts the copy.** People don't read. Every page gets a word budget.
 4. **Picks the right shape for each page.** A short home page, long reads with a reading time and progress rail, and separate pages for things like changelogs and bug reports.
-5. **Builds and checks itself.** Design tokens, light and dark themes, accessibility, SEO, then screenshots at phone and desktop sizes before calling anything done.
+5. **Finds the problems before you build them.** It reads app store reviews, Reddit, X, forums, Stack Overflow and GitHub issues for what users and developers keep running into, and lists the fixes.
+6. **Helps you build in public, if you want.** One question at the start. Say yes and it drafts posts and points you at the conversations worth joining. It never posts anything itself.
+7. **Builds and checks itself.** Design tokens, light and dark themes, accessibility, SEO, then screenshots at phone and desktop sizes before calling anything done.
 
 ## Built with it
 
@@ -41,6 +43,12 @@ The same site with and without a mood board: [snare](https://nexlabz.github.io/s
 ```
 
 Or copy `plugins/design-studio/skills/design-studio` into `~/.claude/skills/`.
+
+**Cursor, Cline, Codex, Copilot, Gemini CLI and 40+ other agents** (needs the [GitHub CLI](https://cli.github.com))
+
+```
+gh skill install AviOfLagos/design-studio design-studio
+```
 
 **Claude.ai and the Claude app**
 

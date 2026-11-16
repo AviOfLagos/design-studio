@@ -19,6 +19,9 @@ Ask once, before any design decision, in one short message:
 
 If the user already supplied one in the brief, don't ask; read it.
 
+Add the build-in-public question to the same message (`social.md` → *The question*), so the user
+answers both at once.
+
 ## Reading a board
 
 **Open it and scroll the whole thing.** The first screen of a board is what the platform ranked, not
